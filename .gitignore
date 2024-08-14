@@ -1,0 +1,4 @@
+.terraform*
+*parameters.json
+*.tfplan
+*.tfstate*
