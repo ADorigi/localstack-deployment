@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/terraform-exec/tfexec"
 )
 
-func (to *TerrformObject) Apply(ctx context.Context, tfvars []string, testPlanName string) error {
+func (to *TerrformObject) Apply(ctx context.Context, testPlanName string) error {
 
 	applyOptions := []tfexec.ApplyOption{
 		tfexec.DirOrPlan(testPlanName),

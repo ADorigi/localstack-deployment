@@ -31,19 +31,13 @@ func TestApply(t *testing.T) {
 		t.Error("Init failed")
 	}
 
-	tfvars := []string{
-		"resource_group_name=test-resource-group",
-		"location=Canada Central",
-		"resourceCount=2",
-	}
-
-	err = to.Plan(context.Background(), tfvars, "test.tfplan")
+	err = to.Plan(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/terraform/testdata/plan.tfvars.json", "test.tfplan")
 	if err != nil {
 		t.Log(err)
 		t.Errorf("Cannot create terraform plan")
 	}
 
-	err = to.Apply(context.Background(), tfvars, "test.tfplan")
+	err = to.Apply(context.Background(), "test.tfplan")
 	if err != nil {
 		t.Log(err)
 	}

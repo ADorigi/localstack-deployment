@@ -11,9 +11,9 @@ import (
 
 type TerraformJob struct {
 	// resourceType       string
-	terraformObject terraform.TerrformObject
-	vars            []string
-	backendConfig   []string
+	terraformObject    terraform.TerrformObject
+	tfvarsJsonFilePath string
+	backendConfig      []string
 	// workerPool         *workerpool.WorkerPool
 	// AzureADCredentials azure.AzureADCredentials
 	workerpool.TaskProperties
@@ -23,7 +23,7 @@ func NewTerraformJob(
 	// resourceType string,
 	workingDirectory string,
 	execPath string,
-	vars []string,
+	tfvarsJsonFilePath string,
 	backendConfig []string,
 	// workerPool *workerpool.WorkerPool,
 	// azureCredentials azure.AzureADCredentials,
@@ -34,9 +34,9 @@ func NewTerraformJob(
 			ID:          uuid.New(),
 			Description: "Provisioning",
 		},
-		terraformObject: terraform.NewTerraformObject(workingDirectory, execPath),
-		vars:            vars,
-		backendConfig:   backendConfig,
+		terraformObject:    terraform.NewTerraformObject(workingDirectory, execPath),
+		tfvarsJsonFilePath: tfvarsJsonFilePath,
+		backendConfig:      backendConfig,
 		// workerPool:         workerPool,
 		// AzureADCredentials: azureCredentials,
 	}
@@ -59,12 +59,12 @@ func (tj *TerraformJob) Run(ctx context.Context) error {
 		return fmt.Errorf("init failed: %w", err)
 	}
 
-	err = tj.terraformObject.Plan(ctx, tj.vars, planFileName)
+	err = tj.terraformObject.Plan(ctx, tj.tfvarsJsonFilePath, planFileName)
 	if err != nil {
 		return fmt.Errorf("plan failed: %w", err)
 	}
 
-	err = tj.terraformObject.Apply(ctx, tj.vars, planFileName)
+	err = tj.terraformObject.Apply(ctx, planFileName)
 	if err != nil {
 		return fmt.Errorf("apply failed: %w", err)
 	}

@@ -21,13 +21,13 @@ func TestDestroy(t *testing.T) {
 		t.Errorf("Initilize failed")
 	}
 
-	tfvars := []string{
-		"resource_group_name=test-resource-group",
-		"location=Canada Central",
-		"resourceCount=2",
-	}
+	// tfvars := []string{
+	// 	"resource_group_name=test-resource-group",
+	// 	"location=Canada Central",
+	// 	"resourceCount=2",
+	// }
 
-	err = to.Destroy(context.Background(), tfvars)
+	err = to.Destroy(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/terraform/testdata/plan.tfvars.json")
 	if err != nil {
 		t.Log(err)
 	}

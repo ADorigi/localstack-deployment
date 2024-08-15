@@ -1,0 +1,46 @@
+// {
+//     "name": "Go and Terraform Development Environment",
+//     "build": {
+//         "dockerfile": "Dockerfile"
+//     },
+//     "customizations": {
+//         "vscode": {
+//             "settings": {
+//                 "go.toolsGopath": "/workspace",
+//                 "go.useLanguageServer": true,
+//                 "go.lintOnSave": "package"
+//             },
+//             "extensions": [
+//                 "golang.go",
+//                 "hashicorp.terraform"
+//             ]
+//         }
+//     },
+//     "forwardPorts": [2345],
+//     // "postCreateCommand": "go mod tidy",
+//     "remoteUser": "vscode",
+//     "workspaceFolder": "/workspaces/localstack-deployment"
+// }
+
+{
+    "name": "Go and Terraform Development Environment",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/localstack-deployment",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "go.toolsGopath": "/workspace",
+                "go.useLanguageServer": true,
+                "go.lintOnSave": "package"
+            },
+            "extensions": [
+                "golang.go",
+                "hashicorp.terraform"
+            ]
+        }
+    },
+    "forwardPorts": [2345],
+    // "postCreateCommand": "go mod tidy",
+    "remoteUser": "vscode"
+}

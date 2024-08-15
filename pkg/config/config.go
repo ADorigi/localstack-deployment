@@ -7,17 +7,19 @@ import (
 )
 
 type ControllerConfiguration struct {
-	ConcurrentWorkers int      `json:"concurrent_workers"`
-	WorkingDirectory  string   `json:"working_directory"`
-	Vars              []string `json:"vars"`
+	ConcurrentWorkers  int      `json:"concurrent_workers"`
+	TemplatesDirectory string   `json:"templates_directory"`
+	Resource           string   `json:"resource"`
+	TfvarsJsonFilePath string   `json:"tfvars_json_file_path"`
+	BackendConfig      []string `json:"backend_config"`
 }
 
 // var ConcurrentWorkers = 1
 // var WorkingDirectory = "pkg/terraform/templates"
 
-func ParseConfiguration(configJsonFile string) ([]*ControllerConfiguration, error) {
+func ParseConfiguration(configJsonFile string) (*ControllerConfiguration, error) {
 
-	var params []*ControllerConfiguration
+	var params *ControllerConfiguration
 
 	jsonFile, err := os.Open(configJsonFile)
 	if err != nil {

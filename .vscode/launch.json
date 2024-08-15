@@ -13,7 +13,7 @@
             "args": [
                 "-test.run",
                 "NewTerraformObject"
-            ]
+            ],
         },
         {
             "name": "Initialize TerraformObject",
@@ -69,6 +69,21 @@
                 "-test.run",
                 "Destroy"
             ]
-        }
+        },
+        {
+            "name": "Controller",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/pkg/controller",
+            "args": [
+                "-test.run",
+                "Controller",
+                "-test.v",
+            ],
+            "env": {
+                "AWS_PROFILE": "localstack"
+            }
+        },
     ]
 }

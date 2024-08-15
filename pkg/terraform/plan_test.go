@@ -13,7 +13,7 @@ func TestPlan(t *testing.T) {
 		t.Errorf("Cannot find 'terraform' path")
 	}
 
-	to := NewTerraformObject("templates/vpc", execPath)
+	to := NewTerraformObject("templates/eks", execPath)
 
 	err = to.Initialize()
 	if err != nil {
@@ -31,13 +31,7 @@ func TestPlan(t *testing.T) {
 		t.Error("Init failed")
 	}
 
-	tfvars := []string{
-		"resource_group_name=test-resource-group",
-		"location=Canada Central",
-		"resourceCount=2",
-	}
-
-	err = to.Plan(context.Background(), tfvars, "test.tfplan")
+	err = to.Plan(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/terraform/testdata/plan.tfvars.json", "test.tfplan")
 	if err != nil {
 		t.Log(err)
 		t.Errorf("Cannot create terraform plan")
