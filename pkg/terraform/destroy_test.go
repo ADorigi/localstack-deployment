@@ -13,7 +13,7 @@ func TestDestroy(t *testing.T) {
 		t.Errorf("Cannot find 'terraform' path")
 	}
 
-	to := NewTerraformObject("templates/vpc", execPath)
+	to := NewTerraformObject("templates/eks", execPath)
 
 	err = to.Initialize()
 	if err != nil {
@@ -27,7 +27,7 @@ func TestDestroy(t *testing.T) {
 	// 	"resourceCount=2",
 	// }
 
-	err = to.Destroy(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/terraform/testdata/plan.tfvars.json")
+	err = to.Destroy(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/testdata/one_eks.tfvars.json")
 	if err != nil {
 		t.Log(err)
 	}

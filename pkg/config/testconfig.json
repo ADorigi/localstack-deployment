@@ -2,7 +2,7 @@
     "concurrent_workers": 1,
     "templates_directory": "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/terraform/templates",
     "resource": "eks",
-    "tfvars_json_file_path": "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/terraform/testdata/plan.tfvars.json",
+    "tfvars_json_file_path": "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/testdata/one_eks.tfvars.json",
     "backend_config": [
         "path=./state"
     ]
