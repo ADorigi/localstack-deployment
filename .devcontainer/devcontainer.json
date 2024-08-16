@@ -26,7 +26,7 @@
     "name": "Go and Terraform Development Environment",
     "dockerComposeFile": "docker-compose.yml",
     "service": "devcontainer",
-    "workspaceFolder": "/workspaces/localstack-deployment",
+    "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
             "settings": {
@@ -41,6 +41,5 @@
         }
     },
     "forwardPorts": [2345],
-    // "postCreateCommand": "go mod tidy",
-    "remoteUser": "vscode"
+    "postCreateCommand": "go mod tidy"
 }

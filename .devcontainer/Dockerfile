@@ -1,8 +1,5 @@
-# Officail go image 
+# Official Go image
 FROM golang:1.22
-
-# Create a non-root user named vscode
-RUN useradd -m vscode
 
 # Install Terraform
 ARG TERRAFORM_VERSION=1.9.4
@@ -12,6 +9,9 @@ RUN apt-get update && apt-get install -y wget unzip \
     && mv terraform /usr/local/bin/ \
     && rm terraform_${TERRAFORM_VERSION}_linux_arm64.zip \
     && apt-get clean
+
+# RUN echo "vscode ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers \
+#     && chmod 440 /etc/sudoers
 
 WORKDIR /workspace
 

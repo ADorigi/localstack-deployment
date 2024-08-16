@@ -5,8 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "2345:2345"
+    volumes:
+      - ..:/workspace
+    # ports:
+    #   - "2345:2345"
+    network_mode: service:localstack
     depends_on:
       - localstack
 
