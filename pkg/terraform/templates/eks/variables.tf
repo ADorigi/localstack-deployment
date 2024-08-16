@@ -27,3 +27,12 @@ variable "iam_configs" {
     policy_arn  = string
   }))
 }
+
+variable "eks_configs" {
+  description = "Map of eks configurations"
+  type = map(object({
+    cluster_name = string
+    role_arn     = string
+    subnet_ids   = list(string)
+  }))
+}
