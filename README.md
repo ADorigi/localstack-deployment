@@ -18,9 +18,10 @@ Deploying localstack resources with terraform
 <!-- 
     done - terraform for eks cluster 
 
-     5 eks clusters, 5 node pools, 20 nodes
+     5 eks clusters, 5 node groups, 20 nodes
 done 1 eks clusters
-
+done 2 eks clusters
+done 
     seperate iam role and policy attachment
     add slog to this repo
     add logs for verbosity in atleast controller, config, jobs and terraform modules

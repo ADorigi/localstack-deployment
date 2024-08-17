@@ -8,11 +8,7 @@ module "eksCluster" {
   role_arn     = each.value.role_arn
   subnet_ids   = each.value.subnet_ids
 
-  #   cluster_name = "testCluster"
-  #   role_arn     = "arn:aws:iam::000000000000:role/eks-role"
-  #   subnet_ids = [
-  #     "subnet-dummysubnet"
-  #   ]
+  cluster_tags = each.value.cluster_tags
 
   depends_on = [
     module.subnets

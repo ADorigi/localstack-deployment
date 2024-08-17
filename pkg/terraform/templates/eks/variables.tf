@@ -34,5 +34,6 @@ variable "eks_configs" {
     cluster_name = string
     role_arn     = string
     subnet_ids   = list(string)
+    cluster_tags = map(string)
   }))
 }
