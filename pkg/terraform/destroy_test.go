@@ -27,7 +27,7 @@ func TestDestroy(t *testing.T) {
 	// 	"resourceCount=2",
 	// }
 
-	err = to.Destroy(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/testdata/one_eks.tfvars.json")
+	err = to.Destroy(context.Background(), "/Users/adnangulegulzar/GITHUB/adorigi/localstack-deployment/pkg/testdata/two_node_group.tfvars.json")
 	if err != nil {
 		t.Log(err)
 	}

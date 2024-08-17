@@ -13,6 +13,4 @@ module "eksCluster" {
   depends_on = [
     module.subnets
   ]
-
-
 }

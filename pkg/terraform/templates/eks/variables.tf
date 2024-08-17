@@ -7,7 +7,6 @@ variable "vpc_configs" {
   }))
 }
 
-
 variable "subnet_configs" {
   description = "Map of subnet configurations"
   type = map(object({
@@ -17,7 +16,6 @@ variable "subnet_configs" {
     vpc_name          = string
   }))
 }
-
 
 variable "iam_configs" {
   description = "Map of iam configurations"
@@ -35,5 +33,18 @@ variable "eks_configs" {
     role_arn     = string
     subnet_ids   = list(string)
     cluster_tags = map(string)
+  }))
+}
+
+variable "nodegroup_configs" {
+  description = "Map of node group configurations"
+  type = map(object({
+    cluster_name    = string
+    node_group_name = string
+    node_role_arn   = string
+    subnet_ids      = list(string)
+    desired_size    = number
+    max_size        = number
+    min_size        = number
   }))
 }
