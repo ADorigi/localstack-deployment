@@ -4,13 +4,12 @@ module "eksCluster" {
 
   for_each = var.eks_configs
 
-  cluster_name = each.value.cluster_name
+  cluster_name = format("%s-%s", each.value.cluster_name, var.region)
   role_arn     = each.value.role_arn
   subnet_ids   = each.value.subnet_ids
-
-  cluster_tags = each.value.cluster_tags
 
   depends_on = [
     module.subnets
   ]
 }
+

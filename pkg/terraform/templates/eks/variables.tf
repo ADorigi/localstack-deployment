@@ -1,3 +1,8 @@
+variable "region" {
+  description = "Region for the provider"
+  type        = string
+}
+
 variable "vpc_configs" {
   description = "Map of VPC configurations"
   type = map(object({
@@ -32,7 +37,6 @@ variable "eks_configs" {
     cluster_name = string
     role_arn     = string
     subnet_ids   = list(string)
-    cluster_tags = map(string)
   }))
 }
 
