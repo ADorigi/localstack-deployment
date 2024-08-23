@@ -50,5 +50,7 @@ variable "nodegroup_configs" {
     desired_size    = number
     max_size        = number
     min_size        = number
+    ami_type        = string
+    instance_types  = list(string)
   }))
 }

@@ -11,6 +11,8 @@ module "nodegroup" {
   max_size        = each.value.max_size
   min_size        = each.value.min_size
 
+  ami_type       = each.value.ami_type
+  instance_types = each.value.instance_types
 
   depends_on = [module.eksCluster]
 }
